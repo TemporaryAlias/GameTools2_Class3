@@ -10,9 +10,13 @@ public class Character : MonoBehaviour {
         anim = GetComponent<Animator>();
 	}
 
-    public void Move(float forward, float turn) {
+    public void Move(float forward, float turn, bool jump) {
         anim.SetFloat("Turn", turn);
         anim.SetFloat("Forward", forward);
+
+        if (jump) {
+            anim.SetTrigger("Jump");
+        }
     }
 
 }

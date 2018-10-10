@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class UserController : MonoBehaviour {
 
+    bool jump;
+
     Character playerCharacter;
 
     void Start() {
@@ -13,8 +15,10 @@ public class UserController : MonoBehaviour {
     void FixedUpdate() {
         float forward = Input.GetAxis("Vertical");
         float turn = Input.GetAxis("Horizontal");
+        jump = Input.GetButtonDown("Jump");
 
-        playerCharacter.Move(forward, turn);
+
+        playerCharacter.Move(forward, turn, jump);
     }
 
 }
